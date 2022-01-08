@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- WARNING: Eclipse auto-generated file.
+              Any modifications will be overwritten.
+              To include a user specific buildfile here, simply create one in the same
+              directory with the processing instruction <?eclipse.ant.import?>
+              as the first entry and export the buildfile again. --><project basedir="." default="build" name="webStudy01">
+    <property environment="env"/>
+    <property name="ECLIPSE_HOME" value="../../../../B_Util/eGovFrameDev-3.9.0-64bit/eclipse/"/>
+    <property name="debuglevel" value="source,lines,vars"/>
+    <property name="target" value="1.8"/>
+    <property name="source" value="1.8"/>
+    <path id="Apache Tomcat v8.5 [Apache Tomcat v8.5].libraryclasspath">
+        <pathelement location="../../../../B_Util/5.ApacheTomcat/apache-tomcat-8.5.37/lib/annotations-api.jar"/>
+        <pathelement location="../../../../B_Util/5.ApacheTomcat/apache-tomcat-8.5.37/lib/catalina-ant.jar"/>
+        <pathelement location="../../../../B_Util/5.ApacheTomcat/apache-tomcat-8.5.37/lib/catalina-ha.jar"/>
+        <pathelement location="../../../../B_Util/5.ApacheTomcat/apache-tomcat-8.5.37/lib/catalina-storeconfig.jar"/>
+        <pathelement location="../../../../B_Util/5.ApacheTomcat/apache-tomcat-8.5.37/lib/catalina-tribes.jar"/>
+        <pathelement location="../../../../B_Util/5.ApacheTomcat/apache-tomcat-8.5.37/lib/catalina.jar"/>
+        <pathelement location="../../../../B_Util/5.ApacheTomcat/apache-tomcat-8.5.37/lib/ecj-4.6.3.jar"/>
+        <pathelement location="../../../../B_Util/5.ApacheTomcat/apache-tomcat-8.5.37/lib/el-api.jar"/>
+        <pathelement location="../../../../B_Util/5.ApacheTomcat/apache-tomcat-8.5.37/lib/jasper-el.jar"/>
+        <pathelement location="../../../../B_Util/5.ApacheTomcat/apache-tomcat-8.5.37/lib/jasper.jar"/>
+        <pathelement location="../../../../B_Util/5.ApacheTomcat/apache-tomcat-8.5.37/lib/jaspic-api.jar"/>
+        <pathelement location="../../../../B_Util/5.ApacheTomcat/apache-tomcat-8.5.37/lib/jsp-api.jar"/>
+        <pathelement location="../../../../B_Util/5.ApacheTomcat/apache-tomcat-8.5.37/lib/servlet-api.jar"/>
+        <pathelement location="../../../../B_Util/5.ApacheTomcat/apache-tomcat-8.5.37/lib/tomcat-api.jar"/>
+        <pathelement location="../../../../B_Util/5.ApacheTomcat/apache-tomcat-8.5.37/lib/tomcat-coyote.jar"/>
+        <pathelement location="../../../../B_Util/5.ApacheTomcat/apache-tomcat-8.5.37/lib/tomcat-dbcp.jar"/>
+        <pathelement location="../../../../B_Util/5.ApacheTomcat/apache-tomcat-8.5.37/lib/tomcat-i18n-es.jar"/>
+        <pathelement location="../../../../B_Util/5.ApacheTomcat/apache-tomcat-8.5.37/lib/tomcat-i18n-fr.jar"/>
+        <pathelement location="../../../../B_Util/5.ApacheTomcat/apache-tomcat-8.5.37/lib/tomcat-i18n-ja.jar"/>
+        <pathelement location="../../../../B_Util/5.ApacheTomcat/apache-tomcat-8.5.37/lib/tomcat-i18n-ru.jar"/>
+        <pathelement location="../../../../B_Util/5.ApacheTomcat/apache-tomcat-8.5.37/lib/tomcat-jdbc.jar"/>
+        <pathelement location="../../../../B_Util/5.ApacheTomcat/apache-tomcat-8.5.37/lib/tomcat-jni.jar"/>
+        <pathelement location="../../../../B_Util/5.ApacheTomcat/apache-tomcat-8.5.37/lib/tomcat-util-scan.jar"/>
+        <pathelement location="../../../../B_Util/5.ApacheTomcat/apache-tomcat-8.5.37/lib/tomcat-util.jar"/>
+        <pathelement location="../../../../B_Util/5.ApacheTomcat/apache-tomcat-8.5.37/lib/tomcat-websocket.jar"/>
+        <pathelement location="../../../../B_Util/5.ApacheTomcat/apache-tomcat-8.5.37/lib/websocket-api.jar"/>
+    </path>
+    <path id="Web App Libraries.libraryclasspath"/>
+    <path id="EAR Libraries.libraryclasspath"/>
+    <path id="webStudy01.classpath">
+        <pathelement location="build/classes"/>
+        <path refid="Apache Tomcat v8.5 [Apache Tomcat v8.5].libraryclasspath"/>
+        <path refid="Web App Libraries.libraryclasspath"/>
+        <path refid="EAR Libraries.libraryclasspath"/>
+    </path>
+    <target name="init">
+        <mkdir dir="build/classes"/>
+        <copy includeemptydirs="false" todir="build/classes">
+            <fileset dir="src">
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+        <copy includeemptydirs="false" todir="build/classes">
+            <fileset dir="res">
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="clean">
+        <delete dir="build/classes"/>
+    </target>
+    <target depends="clean" name="cleanall"/>
+    <target depends="build-subprojects,build-project" name="build"/>
+    <target name="build-subprojects"/>
+    <target depends="init" name="build-project">
+        <echo message="${ant.project.name}: ${ant.file}"/>
+        <javac debug="true" debuglevel="${debuglevel}" destdir="build/classes" includeantruntime="false" source="${source}" target="${target}">
+            <src path="src"/>
+            <src path="res"/>
+            <classpath refid="webStudy01.classpath"/>
+        </javac>
+    </target>
+    <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects"/>
+    <target description="copy Eclipse compiler jars to ant lib directory" name="init-eclipse-compiler">
+        <copy todir="${ant.library.dir}">
+            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
+        </copy>
+        <unzip dest="${ant.library.dir}">
+            <patternset includes="jdtCompilerAdapter.jar"/>
+            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
+        </unzip>
+    </target>
+    <target description="compile project with Eclipse compiler" name="build-eclipse-compiler">
+        <property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter"/>
+        <antcall target="build"/>
+    </target>
+</project>
